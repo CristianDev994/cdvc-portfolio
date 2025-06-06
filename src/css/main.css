@@ -1,0 +1,2026 @@
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway",  sans-serif;
+  --nav-font: "Poppins",  sans-serif;
+  --dark-background: #040b14;
+  --text-color: #666666;
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --nav-color: #a8a9b4;  /* The default color of the main navmenu links */
+  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  scroll-behavior: smooth;
+}
+/* Estilo de las badges que muestran las tech seleccionadas */
+.selected-badge {
+  display: inline-block;
+  background-color: #149ddd;      /* mismo color-acento de tu paleta */
+  color: #ffffff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  margin: 4px 4px 0 0;
+}
+
+.selected-badge i {
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f4fafd;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #040b14;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #151f2b;
+  --contrast-color: #ffffff;
+}
+
+
+/*--------------------------------------------------------------
+# General Styling & Shared Classes
+--------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+  
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.header {
+  
+  color: var(--default-color);
+  background: linear-gradient(
+    135deg,
+    #0d5577 12%,
+    #0e6b96 35%,
+    #0c2955 65%,
+    #000000 100%
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 0 15px;
+  width: 300px;
+  transition: all ease-in-out 0.3s;
+  overflow-y: auto;
+  z-index: 997;
+  border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.header .profile-img img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.header .logo {
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.header .logo img {
+  max-height: 32px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.header .social-links {
+  margin: 0 0 20px 0;
+}
+
+.header .social-links a {
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--default-color), transparent 90%);
+  color: var(--default-color);
+  margin: 0 2px;
+  border-radius: 50%;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s;
+}
+
+.header .social-links a:hover {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+}
+
+@media (min-width: 1200px) {
+
+  .header~main,
+  .header~#footer {
+    margin-left: 300px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .header {
+    left: -100%;
+  }
+}
+
+.header.header-show {
+  left: 0;
+}
+
+.header .header-toggle {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+
+.header .header-toggle:hover {
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.mobile-nav-toggle {
+  display: none;
+}
+
+.navmenu {
+  padding: 0;
+  z-index: 9997;
+}
+
+.navmenu ul {
+  list-style: none;
+  padding: 0 0 20px 0;
+  margin: 0;
+}
+
+.navmenu a,
+.navmenu a:focus {
+  color: var(--nav-color);
+  padding: 15px 10px;
+  font-family: var(--nav-font);
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.navmenu a .navicon,
+.navmenu a:focus .navicon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.navmenu a .toggle-dropdown,
+.navmenu a:focus .toggle-dropdown {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  flex-shrink: 0;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.navmenu a .toggle-dropdown:hover,
+.navmenu a:focus .toggle-dropdown:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus {
+  color: var(--nav-hover-color);
+}
+
+.navmenu a:hover .navicon,
+.navmenu .active .navicon,
+.navmenu .active:focus .navicon {
+  color: var(--accent-color);
+}
+
+.navmenu .active .toggle-dropdown,
+.navmenu .active:focus .toggle-dropdown {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  transform: rotate(180deg);
+}
+
+.navmenu .dropdown {
+  display: block;
+}
+
+.navmenu .dropdown a,
+.navmenu .dropdown a:focus {
+  color: --nav-dropdown-color;
+}
+
+.navmenu .dropdown a:hover,
+.navmenu .dropdown .active,
+.navmenu .dropdown .active:focus {
+  color: var(--nav-dropdown-hover-color);
+}
+
+.navmenu .dropdown ul {
+  position: static;
+  display: none;
+  z-index: 99;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  background-color: var(--nav-dropdown-background-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  box-shadow: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.navmenu .dropdown ul ul {
+  background-color: rgba(33, 37, 41, 0.1);
+}
+
+.navmenu .dropdown>.dropdown-active {
+  display: block;
+  background-color: rgba(33, 37, 41, 0.03);
+}
+
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+.footer {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-size: 14px;
+  padding: 40px 0;
+  position: relative;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.footer .copyright p {
+  margin-bottom: 0;
+}
+
+.footer .credits {
+  margin-top: 4px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffffff;
+  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: -15px;
+  z-index: 99999;
+  background-color: var(--accent-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  color: var(--contrast-color);
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# Disable aos animation delay on mobile devices
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Global Page Titles & Breadcrumbs
+--------------------------------------------------------------*/
+.page-title {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 25px 0;
+  position: relative;
+}
+
+.page-title h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.page-title .breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.page-title .breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.page-title .breadcrumbs ol li+li::before {
+  content: "/";
+  display: inline-block;
+  padding-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+/*--------------------------------------------------------------
+# Global Sections
+--------------------------------------------------------------*/
+section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  overflow: clip;
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.section-title h2:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: 0;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 160px 0 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero img.Fondo_imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+  font-family: var(--font-secondary);
+}
+
+.hero p {
+  margin: 5px 0 0 0;
+  font-size: 26px;
+}
+
+.hero p span {
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.hero .social-links {
+  margin-top: 25px;
+}
+
+.hero .social-links a {
+  font-size: 24px;
+  display: inline-block;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  line-height: 1;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+.hero .social-links a:hover {
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 20px;
+  }
+}
+
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about .content h2 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.about .content ul strong {
+  margin-right: 10px;
+}
+
+.about .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: var(--accent-color);
+  line-height: 0;
+}
+
+/*--------------------------------------------------------------
+# Stats Section
+--------------------------------------------------------------*/
+.stats .stats-item {
+  padding: 30px;
+  width: 100%;
+}
+
+.stats .stats-item i {
+  color: var(--accent-color);
+  display: block;
+  font-size: 44px;
+  float: left;
+  line-height: 0;
+}
+
+.stats .stats-item .purecounter {
+  color: var(--heading-color);
+  font-size: 48px;
+  line-height: 40px;
+  display: block;
+  font-weight: 700;
+  margin-left: 60px;
+}
+
+.stats .stats-item p {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  padding: 15px 0 0 0;
+  margin: 0 0 0 60px;
+  font-family: var(--heading-font);
+  font-size: 14px;
+}
+
+/*--------------------------------------------------------------
+# Skills Section
+--------------------------------------------------------------*/
+.skills .progress {
+  height: 60px;
+  display: block;
+  background: none;
+  border-radius: 0;
+}
+
+.skills .progress .skill {
+  color: var(--heading-color);
+  padding: 0;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: var(--heading-font);
+}
+
+.skills .progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.skills .progress-bar-wrap {
+  background: color-mix(in srgb, var(--default-color), transparent 90%);
+  height: 10px;
+}
+
+.skills .progress-bar {
+  width: 1px;
+  height: 10px;
+  transition: 0.9s;
+  background-color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Portfolio Section
+--------------------------------------------------------------*/
+.portfolio {
+  background: var(--background-color);
+  color: var(--default-color);
+  padding: 60px 0;
+}
+
+.portfolio .section-title h2 {
+  color: var(--heading-color);
+}
+
+.portfolio .section-title p {
+  color: var(--text-color);
+}
+
+.portfolio .portfolio-filters {
+  padding: 0;
+  margin: 0 auto 20px auto;
+  list-style: none;
+  text-align: center;
+}
+
+.portfolio .portfolio-filters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.portfolio .portfolio-filters li:hover,
+.portfolio .portfolio-filters li.filter-active {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-filters li:first-child {
+  margin-left: 0;
+}
+
+.portfolio .portfolio-filters li:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 575px) {
+  .portfolio .portfolio-filters li {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+}
+
+.portfolio .portfolio-content {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio .portfolio-content img {
+  transition: 0.3s;
+  width: 100%;
+}
+
+.portfolio .portfolio-content .portfolio-info {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.portfolio .portfolio-content .portfolio-info h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.portfolio .portfolio-content .portfolio-info p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.portfolio .portfolio-content .portfolio-info .tech-stack {
+  margin: 15px 0;
+  text-align: left;
+  background: transparent;
+}
+
+.portfolio .portfolio-content .portfolio-info .tech-badge {
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  color: #fff;
+  padding: 4px 12px;
+  margin: 2px;
+  font-size: 0.85em;
+  border-radius: 20px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.portfolio .portfolio-content .portfolio-info .tech-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio .portfolio-content .portfolio-info .portfolio-links {
+  text-align: center;
+  margin-top: auto;
+}
+
+.portfolio .portfolio-content .portfolio-info .portfolio-links a {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 8px;
+  transition: 0.3s;
+}
+
+.portfolio .portfolio-content .portfolio-info .portfolio-links a:hover {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-content:hover .portfolio-info {
+  opacity: 1;
+}
+
+.portfolio .portfolio-content:hover img {
+  transform: scale(1.1);
+}
+
+/*--------------------------------------------------------------
+# Portfolio Details Section
+--------------------------------------------------------------*/
+.portfolio-details .portfolio-details-slider img {
+  width: 100%;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+  opacity: 1;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+.portfolio-details .portfolio-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.portfolio-details .portfolio-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.portfolio-details .portfolio-info ul li+li {
+  margin-top: 10px;
+}
+
+.portfolio-details .portfolio-description {
+  padding-top: 30px;
+}
+
+.portfolio-details .portfolio-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.portfolio-details .portfolio-description p {
+  padding: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.Fondo_imagen {
+  filter: blur(5px); /* Intensidad deseada */
+  -webkit-filter: blur(5px); /* Navegadores WebKit */
+}
+
+/* Portfolio Item Adjustments */
+.portfolio-content {
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-info {
+  padding: 25px;
+  background-color: #fff;
+  position: relative;
+  border-radius: 8px;
+  margin-bottom: 0;
+}
+
+/* ========================================
+   TECH CATEGORIES SECTION
+   - Estilos para las categorías de tecnologías en la sección de habilidades
+   ======================================== */
+.tech-category {
+  background: var(--surface-color);
+  border-radius: 15px;
+  padding: 25px;
+  height: 100%;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+/* Efecto hover para las categorías */
+.tech-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+/* Títulos de las categorías con línea decorativa */
+.tech-category h4 {
+  color: var(--heading-color);
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.tech-category h4:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-color);
+  bottom: 0;
+  left: 0;
+}
+
+/* ========================================
+   TECH BADGES
+   - Estilos para las etiquetas de tecnologías
+   - Usados tanto en el portfolio como en las categorías
+   ======================================== */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: color-mix(in srgb, var(--accent-color), transparent 85%);
+  color: var(--accent-color);
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+  margin: 4px;
+  text-decoration: none;
+}
+
+/* Iconos dentro de los badges */
+.tech-badge i {
+  margin-right: 5px;
+  font-size: 1em;
+}
+
+/* Estados de los badges */
+.tech-badge:hover, 
+.tech-badge:focus,
+.tech-badge.active {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(20, 157, 221, 0.3);
+  text-decoration: none;
+}
+
+/* ========================================
+   PORTFOLIO SEARCH AND FILTERS
+   - Estilos para la barra de búsqueda y filtros del portfolio
+   ======================================== */
+.portfolio-search {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* Campo de búsqueda */
+.portfolio-search input {
+  padding: 15px 20px;
+  padding-right: 50px;
+  border-radius: 30px;
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.portfolio-search input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(20, 157, 221, 0.1);
+  outline: none;
+}
+
+/* Icono de búsqueda */
+.portfolio-search .search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-color);
+  font-size: 18px;
+}
+
+/* ========================================
+   MULTISELECT DROPDOWN
+   - Componente para selección múltiple de tecnologías
+   ======================================== */
+.multiselect-dropdown {
+  position: relative;
+  width: 100%;
+  margin-bottom: 420px; /* Espacio para el menú desplegable */
+  transition: margin-bottom 0.3s ease;
+}
+
+.multiselect-dropdown:not(.active) {
+  margin-bottom: 0;
+}
+
+/* Contenedor del dropdown */
+.filter-dropdown {
+  position: relative;
+  z-index: 100;
+  margin-bottom: 30px;
+}
+
+/* Botón principal del dropdown */
+.multiselect-dropdown .dropdown-toggle {
+  width: 100%;
+  min-height: 45px;
+  height: auto;
+  padding: 8px 15px;
+  background: var(--surface-color);
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+  z-index: 101;
+}
+
+/* Contenedor de opciones seleccionadas con mejor alineación */
+.multiselect-dropdown .selected-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px 8px;
+  min-height: 38px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Ajuste adicional para el título */
+.multiselect-dropdown .dropdown-toggle .dropdown-title {
+  color: var(--heading-color);
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+  padding-left: 8px;
+  line-height: 1.2;
+  width: 100%;
+}
+
+/* Flecha del dropdown */
+.multiselect-dropdown .dropdown-toggle i.bi-chevron-down {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+/* Rotación de la flecha al abrir */
+.multiselect-dropdown.active .dropdown-toggle i.bi-chevron-down {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Menú desplegable */
+.multiselect-dropdown .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  background: var(--surface-color);
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: none;
+  z-index: 1000;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Animación al mostrar el menú */
+.multiselect-dropdown.active .dropdown-menu {
+  display: block;
+  animation: fadeInDown 0.3s ease;
+}
+
+/* Grupos de categorías dentro del dropdown */
+.multiselect-dropdown .category-group {
+  margin-bottom: 20px;
+}
+
+.multiselect-dropdown .category-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Encabezados de categorías */
+.multiselect-dropdown .dropdown-header {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+/* Grid de opciones */
+.multiselect-dropdown .dropdown-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+/* Opciones individuales */
+.multiselect-dropdown .dropdown-option {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--default-color);
+  font-size: 14px;
+}
+
+.multiselect-dropdown .dropdown-option:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+}
+
+/* Checkboxes personalizados */
+.multiselect-dropdown .dropdown-option input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+  accent-color: var(--accent-color);
+}
+
+/* Iconos en las opciones */
+.multiselect-dropdown .dropdown-option i {
+  margin-right: 8px;
+  color: var(--accent-color);
+  font-size: 16px;
+}
+
+/* ========================================
+   ANIMACIONES
+   - Efectos de transición y animación
+   ======================================== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   SCROLLBAR PERSONALIZADA
+   - Estilos para la barra de desplazamiento del dropdown
+   ======================================== */
+.multiselect-dropdown .dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.multiselect-dropdown .dropdown-menu::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  border-radius: 4px;
+}
+
+.multiselect-dropdown .dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+.multiselect-dropdown .dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+/* ========================================
+   RESPONSIVE
+   - Ajustes para dispositivos móviles
+   ======================================== */
+@media (max-width: 768px) {
+  .multiselect-dropdown .dropdown-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .multiselect-dropdown .dropdown-menu {
+    max-height: 300px;
+  }
+
+  .multiselect-dropdown {
+    margin-bottom: 320px; /* Ajuste del espacio para móviles */
+  }
+
+  .filter-dropdown {
+    margin-bottom: 20px;
+  }
+}
+
+/* ========================================
+   TIMELINE STYLES
+   - Estilos para las líneas de tiempo de educación y experiencia
+   ======================================== */
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-title {
+  color: var(--heading-color);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.timeline-title:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-color);
+  bottom: 0;
+  left: 0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 25px;
+}
+
+.timeline-item:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: -25px;
+  width: 2px;
+  background: color-mix(in srgb, var(--accent-color), transparent 70%);
+}
+
+.timeline-item:last-child:before {
+  bottom: 0;
+}
+
+.timeline-item:after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  border: 2px solid var(--surface-color);
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.timeline-item-header {
+  margin-bottom: 10px;
+}
+
+.timeline-item-title {
+  color: var(--heading-color);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.timeline-item-period {
+  color: var(--accent-color);
+  font-size: 14px;
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+.timeline-item-subtitle {
+  color: color-mix(in srgb, var(--heading-color), transparent 30%);
+  font-size: 15px;
+  font-style: italic;
+  margin: 0;
+}
+
+.timeline-item-content {
+  color: var(--default-color);
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.timeline-item-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.timeline-item-content ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 5px;
+}
+
+.timeline-item-content ul li:before {
+  content: "▹";
+  color: var(--accent-color);
+  position: absolute;
+  left: 0;
+}
+
+.timeline-container {
+  margin-top: 40px;
+}
+
+.timeline-section {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .timeline-item {
+    padding-left: 25px;
+  }
+  
+  .timeline-item-title {
+    font-size: 16px;
+  }
+  
+  .timeline-item-content {
+    font-size: 13px;
+  }
+}
+
+/* Portfolio Image Container */
+.portfolio-img-container {
+  position: relative;
+  width: 100%;
+  height: 250px; /* Altura fija para todas las imágenes */
+  overflow: hidden;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.portfolio-img-container img.portfolio-img,
+.portfolio-img-container video.portfolio-img,
+.portfolio-img-container .gif-container {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene la proporción y cubre el contenedor */
+  transition: transform 0.3s ease;
+}
+
+.portfolio-img-container:hover img.portfolio-img,
+.portfolio-img-container:hover video.portfolio-img,
+.portfolio-img-container:hover .gif-container {
+  transform: scale(1.05);
+}
+
+/* Para GIFs */
+/* ELIMINAR DESDE AQUÍ */
+/*
+.gif-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+*/
+/* HASTA AQUÍ */
+
+/* Para videos */
+.portfolio-img-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ajuste del contenedor del portfolio */
+.portfolio-content {
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.portfolio-content:hover {
+  transform: translateY(-5px);
+}
+
+/* Ajuste del info del portfolio */
+.portfolio-info {
+  padding: 1.5rem;
+}
+
+/* Portfolio Image Slider */
+.portfolio-img-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-img-slider .portfolio-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  object-fit: cover;
+}
+
+.portfolio-img-slider .portfolio-img.active {
+  opacity: 1;
+}
+
+/* Gallery Modal */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+
+.gallery-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 80vh;
+}
+
+.gallery-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.gallery-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-slide.active {
+  opacity: 1;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.gallery-nav button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.gallery-nav button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.gallery-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.gallery-thumbnails {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.gallery-thumbnail {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-thumbnail:hover,
+.gallery-thumbnail.active {
+  opacity: 1;
+}
+
+.gallery-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Gallery Link */
+.gallery-link {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 8px;
+  transition: 0.3s;
+}
+
+.gallery-link:hover {
+  color: var(--accent-color);
+}
+
+/* Estilos para el modal de la galería */
+#portfolioGalleryModal .modal-dialog {
+  max-width: 95vw;
+  margin: 0.5rem auto;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+}
+
+#portfolioGalleryModal .modal-content {
+  background-color: rgba(0, 0, 0, 0.95);
+  border: none;
+  border-radius: 10px;
+  height: auto;
+  max-height: 95vh;
+}
+
+#portfolioGalleryModal .modal-header {
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  border: none;
+}
+
+#portfolioGalleryModal .modal-body {
+  padding: 0;
+  position: relative;
+  background: transparent;
+  height: auto;
+  max-height: 95vh;
+  overflow: hidden;
+}
+
+#portfolioGalleryModal .carousel {
+  height: 100%;
+}
+
+#portfolioGalleryModal .carousel-inner {
+  height: 100%;
+}
+
+#portfolioGalleryModal .carousel-item {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding: 2rem 0;
+  transition: transform .6s ease-in-out, opacity .5s ease-in-out;
+}
+
+/* Efecto de desvanecimiento para las imágenes */
+#portfolioGalleryModal .carousel.slide .carousel-item {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+#portfolioGalleryModal .carousel.slide .carousel-item.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Efecto de zoom suave al cambiar */
+#portfolioGalleryModal .carousel-item img {
+  max-width: 95%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+  transform-origin: center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#portfolioGalleryModal .carousel-item.active img {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#portfolioGalleryModal .carousel-item:not(.active) img {
+  transform: scale(0.98);
+  opacity: 0;
+}
+
+/* Animación de los controles */
+#portfolioGalleryModal .carousel-control-prev,
+#portfolioGalleryModal .carousel-control-next {
+  width: 8%;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(to right, rgba(0,0,0,0.5), transparent);
+  border: none;
+}
+
+#portfolioGalleryModal .carousel-control-next {
+  background: linear-gradient(to left, rgba(0,0,0,0.5), transparent);
+}
+
+#portfolioGalleryModal:hover .carousel-control-prev,
+#portfolioGalleryModal:hover .carousel-control-next {
+  opacity: 1;
+}
+
+
+/* Efecto hover en los controles */
+#portfolioGalleryModal .carousel-control-prev:hover,
+#portfolioGalleryModal .carousel-control-next:hover {
+  background-color: rgba(0,0,0,0.3);
+}
+
+#portfolioGalleryModal .carousel-control-prev-icon,
+#portfolioGalleryModal .carousel-control-next-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.8));
+  transition: transform 0.3s ease;
+}
+
+#portfolioGalleryModal .carousel-control-prev:hover .carousel-control-prev-icon {
+  transform: translateX(-5px);
+}
+
+#portfolioGalleryModal .carousel-control-next:hover .carousel-control-next-icon {
+  transform: translateX(5px);
+}
+
+/* Animación de entrada del modal */
+#portfolioGalleryModal.fade .modal-dialog {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#portfolioGalleryModal.show .modal-dialog {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Indicadores del carrusel */
+#portfolioGalleryModal .carousel-indicators {
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 20px;
+}
+
+#portfolioGalleryModal .carousel-indicators [data-bs-target] {
+  width: 30px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  margin: 0 4px;
+  transition: all 0.4s ease;
+}
+
+#portfolioGalleryModal .carousel-indicators .active {
+  background-color: var(--accent-color);
+  width: 40px;
+}
+
+@media (max-width: 768px) {
+  #portfolioGalleryModal .modal-dialog {
+    max-width: 100vw;
+    margin: 0;
+    height: 100vh;
+  }
+
+  #portfolioGalleryModal .modal-content {
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  #portfolioGalleryModal .carousel-item {
+    height: 100vh;
+    padding: 3.5rem 0 1.5rem;
+  }
+
+  #portfolioGalleryModal .carousel-item img {
+    max-width: 100%;
+    max-height: calc(100vh - 5rem);
+  }
+
+  #portfolioGalleryModal .carousel-control-prev,
+  #portfolioGalleryModal .carousel-control-next {
+    width: 15%;
+  }
+}
+
+.contacto {
+  background: var(--background-color);
+  color: var(--default-color);
+  padding: 60px 0;
+}
+
+.contacto .section-title h2 {
+  color: var(--heading-color);
+}
+
+.contacto .section-title p {
+  color: var(--default-color);
+}
+
+/* Contact Info Block */
+.contacto .info {
+  background: var(--surface-color);
+  padding: 30px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.contacto .info i {
+  font-size: 20px;
+  color: var(--accent-color);
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.contacto .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--heading-color);
+}
+
+.contacto .info p {
+  padding: 0 0 10px 60px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.contacto .info .email p {
+  margin-bottom: 3px;
+}
+
+.contacto .info .email p:last-child {
+  margin-bottom: 0;
+}
+
+/* Contact Form */
+.contacto .email-form {
+  width: 100%;
+  background: var(--surface-color);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.contacto .email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.contacto .email-form label {
+  padding-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--heading-color);
+}
+
+.contacto .email-form .form-control {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--default-color);
+  background-color: var(--background-color);
+  background-clip: padding-box;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+  appearance: none;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.contacto .email-form .form-control:focus {
+  border-color: color-mix(in srgb, var(--accent-color), transparent 50%);
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 75%);
+  outline: 0;
+}
+
+.contacto .email-form textarea.form-control {
+  padding: 12px 15px;
+}
+
+.contacto .email-form .text-center button[type="submit"] {
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 24px;
+  color: var(--contrast-color);
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contacto .email-form button[type="submit"]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.contacto .email-form .loading {
+  display: none;
+  text-align: center;
+  padding: 15px;
+}
+
+.contacto .email-form .error-message {
+  display: none;
+  color: var(--contrast-color);
+  background: #ed3c0d;
+  text-align: left;
+  padding: 5px;
+  border-radius: 100px;
+}
+
+.contacto .email-form .error-message br + br {
+  margin-top: 25px;
+}
+
+.contacto .email-form .sent-message {
+  display: none;
+  color: var(--contrast-color);
+  background: #18d26e;
+  text-align: center;
+  padding: 5px;
+  border-radius: 100px;
+}
+
+@media (min-width: 992px) {
+  .contacto .row {
+    display: flex !important;
+  }
+}
+
+#containerPerf{
+  min-height: 300px
+}
+
+/* Estilos para los badges seleccionados en el botón del dropdown */
+.multiselect-dropdown .selected-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 12px;
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  color: var(--accent-color);
+  border-radius: 15px;
+  font-size: 0.85em;
+  margin: 2px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+  transition: all 0.2s ease;
+  animation: badgeIn 0.2s ease forwards;
+  height: 24px;
+  line-height: 1;
+}
+
+.multiselect-dropdown .selected-badge .badge-text {
+  line-height: 1;
+}
+
+.multiselect-dropdown .selected-badge .remove-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-color), transparent 85%);
+  color: var(--contrast-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 4px;
+  padding: 0;
+  line-height: 1;
+}
+
+.multiselect-dropdown .selected-badge .remove-badge i {
+  font-size: 10px;
+  line-height: 1;
+  height: 10px;
+  width: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.multiselect-dropdown .selected-badge:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 85%);
+  transform: translateY(-1px);
+}
+
+.multiselect-dropdown .selected-badge .remove-badge:hover {
+  background: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* Ajuste del botón del dropdown */
+.multiselect-dropdown .dropdown-toggle {
+  min-height: 45px;
+  height: auto;
+  padding: 8px 15px;
+  background: var(--surface-color);
+  transition: all 0.3s ease;
+}
+
+.multiselect-dropdown .dropdown-toggle:hover {
+  border-color: var(--accent-color);
+}
+
+/* Título del dropdown */
+.multiselect-dropdown .dropdown-toggle .dropdown-title {
+  color: var(--heading-color);
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Animación de entrada y salida para los badges */
+@keyframes badgeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Ajuste del espacio cuando no hay selecciones */
+.multiselect-dropdown .dropdown-toggle:empty::before {
+  content: "Seleccionar tecnologías";
+  color: var(--default-color);
+  opacity: 0.7;
+  padding-left: 8px;
+}
+
+/* Mejora del hover state del botón */
+.multiselect-dropdown .dropdown-toggle:hover {
+  border-color: var(--accent-color);
+}

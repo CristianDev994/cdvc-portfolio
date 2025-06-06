@@ -1,0 +1,43 @@
+# .github/workflows/pages.yml
+
+name: Deploy to GitHub Pages
+
+# Cada vez que haya un push a la rama "main", se disparará este workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Clona el repositorio para que Actions tenga el código
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2) (Opcional) Si tu proyecto usa Node, instala la versión que necesites
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # 3) Instala dependencias (si usas npm/yarn)
+      - name: Install dependencies
+        run: npm install
+
+      # 4) Genera tu sitio (ajusta este comando según tu package.json)
+      - name: Build project
+        run: npm run build
+
+      # 5) Publica la carpeta resultante (por defecto "dist/") a la rama gh-pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # Este token ya viene creado por GitHub y permite publicar en gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Nombre de la rama donde se publicará el contenido estático
+          publish_branch: gh-pages
+          # Carpeta local que contiene los archivos finales a servir
+          publish_dir: ./dist
