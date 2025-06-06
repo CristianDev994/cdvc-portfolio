@@ -1,0 +1,41 @@
+/**
+ * Custom styles for Zygos Details Page
+ */
+
+/* Ejemplos de estilos que querías aplicar en zygos.css */
+
+.zygos-details-page .section-title h2 {
+  margin-bottom: 30px;
+}
+
+.zygos-details-page .tech-stack {
+  margin-top: 20px;
+}
+
+.zygos-details-page .glightbox-video video {
+  max-height: 80vh; /* Limita la altura del video */
+  display: block;   /* Elimina margen inferior no deseado */
+  margin: 0 auto;   /* Centra el video horizontalmente */
+}
+
+.zygos-details-page .glightbox-video,
+.zygos-details-page .glightbox {
+  margin-bottom: 15px; /* Espacio debajo de cada elemento multimedia */
+}
+
+.zygos-details-page .glightbox:last-child {
+  margin-bottom: 0; /* Sin margen para el último elemento */
+}
+
+/* Estilo para la badge “En Desarrollo” */
+.zygos-details-page .badge {
+  font-size: 1em;
+  padding: 0.5em 1em;
+  margin-bottom: 20px; /* Espacio bajo la badge */
+}
+
+/* Ajustes generales de sección (opcional, si no los tienes en main.css) */
+.section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
