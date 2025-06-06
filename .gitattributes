@@ -1,0 +1,17 @@
+# Cruft y binarios (no tocar)
+*.png   binary
+*.jpg   binary
+*.gif   binary
+*.pdf   binary
+
+# Para el resto de archivos de texto, forcemos LF en el repositorio
+*.js    text eol=lf
+*.json  text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+*.md    text eol=lf
+*.yml   text eol=lf
+*.sh    text eol=lf
+
+# Finalmente, todos los demás archivos de texto como LF
+*       text=auto
