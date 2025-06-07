@@ -161,22 +161,11 @@
                   <img src="./img/portfolio/Zygos/zygos12.png" class="img-fluid rounded" alt="Captura 11" />
                 </a>
               </div>
-              <!-- Vídeo -->
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <a href="./img/portfolio/Zygos/zygos13.mp4" class="glightbox-video d-block rounded"
-                  data-gallery="zygos-media" data-type="video" data-title="Video agregar alimento">
-                  <video class="img-fluid rounded" controls preload="metadata">
-                    <source src="./img/portfolio/Zygos/zygos13.mp4" type="video/mp4" />
-                    Tu navegador no soporta la reproducción de video.
-                  </video>
-                </a>
-              </div>
-
             </div>
           </div>
         </div>
 
-        <!-- — — TECNOLOGÍAS UTILIZADAS — — -->
+        <!-- —— TECNOLOGÍAS UTILIZADAS —— -->
         <div class="row justify-content-center mb-5">
           <div class="col-md-10 text-center">
             <h3>Tecnologías Utilizadas</h3>
@@ -192,6 +181,7 @@
         <!-- —— BOTÓN DE VOLVER AL PORTFOLIO —— -->
         <div class="row justify-content-center">
           <div class="col-md-10 text-center">
+            <!-- Si tu página "home" se llama index.html, usa “/index.html#portfolio” para que apunte bien -->
             <a href="https://cristiandev994.github.io/cdvc-portfolio/" class="btn btn-primary">Volver al Portfolio</a>
           </div>
         </div>
@@ -207,6 +197,7 @@
   <!-- GLightbox JS -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script>
+    // Inicializamos GLightbox para que reconozca .glightbox y .glightbox-video
     document.addEventListener("DOMContentLoaded", function () {
       GLightbox({ selector: ".glightbox" });
       GLightbox({ selector: ".glightbox-video" });
