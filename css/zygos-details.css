@@ -13,25 +13,31 @@
 }
 
 .zygos-details-page .glightbox-video video {
-  max-height: 80vh; /* Limita la altura del video */
-  display: block;   /* Elimina margen inferior no deseado */
-  margin: 0 auto;   /* Centra el video horizontalmente */
+  max-height: 80vh;
+  /* Limita la altura del video */
+  display: block;
+  /* Elimina margen inferior no deseado */
+  margin: 0 auto;
+  /* Centra el video horizontalmente */
 }
 
 .zygos-details-page .glightbox-video,
 .zygos-details-page .glightbox {
-  margin-bottom: 15px; /* Espacio debajo de cada elemento multimedia */
+  margin-bottom: 15px;
+  /* Espacio debajo de cada elemento multimedia */
 }
 
 .zygos-details-page .glightbox:last-child {
-  margin-bottom: 0; /* Sin margen para el último elemento */
+  margin-bottom: 0;
+  /* Sin margen para el último elemento */
 }
 
 /* Estilo para la badge “En Desarrollo” */
 .zygos-details-page .badge {
   font-size: 1em;
   padding: 0.5em 1em;
-  margin-bottom: 20px; /* Espacio bajo la badge */
+  margin-bottom: 20px;
+  /* Espacio bajo la badge */
 }
 
 /* Ajustes generales de sección (opcional, si no los tienes en main.css) */
@@ -41,9 +47,11 @@
 }
 
 .zygos-details-page .glightbox-video video {
-  display: block;
   width: 100%;
-  height: auto;      /*Para mantener la proporción natural*/
-  aspect-ratio: 1 / 1;   /*O la proporción que quieras (por ej. 4/3)*/
-  object-fit: cover; /*Recorta centrado si la proporción difiere*/
+  height: auto;
+  aspect-ratio: 9 / 16;
+
+  object-fit: cover;
+
+  display: block;
 }
