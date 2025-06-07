@@ -39,3 +39,11 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
+
+.zygos-details-page .glightbox-video video {
+  display: block;
+  width: 100%;
+  height: auto;      /*Para mantener la proporción natural*/
+  aspect-ratio: 1 / 1;   /*O la proporción que quieras (por ej. 4/3)*/
+  object-fit: cover; /*Recorta centrado si la proporción difiere*/
+}
